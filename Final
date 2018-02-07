@@ -1,0 +1,86 @@
+/**
+ ******************************************************
+ * This program was written by ~Naomi Stewart~ during *
+ * the weekend of finals, so she was studying         *
+ * mostly the entire time.                            *
+ ******************************************************
+ */
+package javafinalexam;
+
+/**
+ *
+ * @author naomi
+ */
+import java.io.PrintWriter;
+import java.io.FileNotFoundException;
+import java.util.Scanner;   //used to write get user-based input from keyboard
+import java.io.File;
+import java.util.ArrayList; //gets ArrayList class
+public class JavaFinalExam {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws Exception {  
+        //creates ArrayList
+        ArrayList<String> cities = new ArrayList<String>();
+        
+        //reads and prints out text in file
+        File file = new File("cities.txt");
+        String city;    //holds read items from txt file as strings
+        String fileName = "new_cities.txt";
+        Scanner fileRead = new Scanner(file);
+        Scanner input = new Scanner(System.in);
+        System.out.println("Text from file cities.txt: ");
+        while (fileRead.hasNextLine()) {
+            city = fileRead.next();
+            cities.add (city); //adds each item to ArrayList 'cities'
+        }
+        
+        //prints ArrayList cities
+        System.out.println(cities);
+        
+        //adds Canberra to the ArrayList and prints ArrayList cities
+        cities.add ("Canberra");
+        System.out.println("\n" + cities);
+
+        //removes Perth from the ArrayList and prints the ArrayList
+        cities.remove(4);
+        System.out.println("\n" + cities);
+        
+        //sets index 3 to New London and prints ArrayList
+        cities.set(3, "New London");
+        System.out.println("\n" + cities);
+
+        //adds Wagga Wagga to ArrayList at index 3
+        cities.add(3, "Wagga Wagga");
+        System.out.println("\n" + cities);
+        
+        //gets size of ArrayList
+        int listSize = 0;
+        listSize = cities.size();
+        
+        //prints/writes items from ArrayList to txt file
+        PrintWriter outputStream = null;
+        try
+        {
+        outputStream = new PrintWriter (fileName);
+        }
+        catch (FileNotFoundException e)
+        {
+        System.out.println ("Error opening the file " +
+        fileName);
+        System.exit (0);
+        }
+        for (int count = 0 ; count < listSize ; count++) {
+            String myCity;  //holds string items from ArrayList cities
+            myCity = cities.get(count);
+            outputStream.println (count + " " + myCity);
+        }
+        outputStream.close ();
+        System.out.println ("Those lines were written to " +
+        fileName);
+        
+    }
+    
+}
