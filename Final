@@ -1,16 +1,12 @@
 /**
  ******************************************************
- * This program was written by ~Naomi Stewart~ during *
+ * This program was written by ~NS~ during *
  * the weekend of finals, so she was studying         *
  * mostly the entire time.                            *
  ******************************************************
  */
 package javafinalexam;
 
-/**
- *
- * @author naomi
- */
 import java.io.PrintWriter;
 import java.io.FileNotFoundException;
 import java.util.Scanner;   //used to write get user-based input from keyboard
